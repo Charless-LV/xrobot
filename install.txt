@@ -1,3 +1,4 @@
+RHEL7.5
 alias vi=vim
 alias python=python3
 alias nginx=/usr/local/nginx/sbin/nginx
