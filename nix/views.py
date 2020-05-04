@@ -111,8 +111,8 @@ def xperf_run(request, xpk):
     
     boots =xpf.bootstrap()
     
-    xpf.run()
-
+    xr = xpf.run()
+    print(xr, '////////')
     ctx = {
         'xperf':xpf,
         'create_time':xpf.create_time,

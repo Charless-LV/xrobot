@@ -2,8 +2,11 @@ alias vi=vim
 alias python=python3
 alias nginx=/usr/local/nginx/sbin/nginx
 alias pip=pip3
-alias dsv=/opt/xrobot/manage.py
-export LD_LIBARY_PATH=/usr/local/lib
+alias dsv='python /opt/xrobot/manage.py'
+export LD_LIBRARY_PATH=/usr/local/lib
+
+Python:
+yum install openssl*
 
 sqlite3:
 yum install sqlite*
