@@ -1,0 +1,17 @@
+alias vi=vim
+alias python=python3
+alias nginx=/usr/local/nginx/sbin/nginx
+alias pip=pip3
+alias dsv=/opt/xrobot/manage.py
+export LD_LIBARY_PATH=/usr/local/lib
+
+sqlite3:
+yum install sqlite*
+
+nginx:
+yum install pcre* , zlib*
+
+django:
+asgiref-3.2.7-py2.py3-none-any.whl
+pytz-2020.1-py2.py3-none-any.whl
+sqlparse-0.3.1-py2.py3-none-any.whl
