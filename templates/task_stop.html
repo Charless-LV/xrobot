@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block css_conf %}
+<link rel="stylesheet" href="{% static 'css/task.css' %}" >
+{% endblock css_conf %}
+
+{% block content %}
+
+<h1 style="text-align: center;"> TASK </h1>
+
+Status : Stop
+
+<a href="{% url 'task_stop' task.pk %}">开始</a>
+
+{% endblock content %}

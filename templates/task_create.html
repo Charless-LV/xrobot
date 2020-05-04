@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block css_conf %}
+<link rel="stylesheet" href="{% static 'css/cat_create.css' %}" >
+{% endblock css_conf %}
+
+{% block content %}
+<style>
+    @media screen and (min-width: 500px) {
+           #main {
+               width: 100%;
+               min-width: 500px;
+               background-color:rgb(243, 136, 30);
+           }
+       }
+
+   @media screen and (max-width: 900px) {
+           #main {
+           width: 80%;
+           margin-left: 10%;
+           background-color: rgb(204, 246, 15);
+       }
+   }
+   @media screen and (min-width: 1200px) {
+       #main {
+           width: 60%;
+           margin-left: 20%;
+           background-color: bisque;
+           box-shadow: black;
+           box-sizing: border-box;
+       }
+   }
+   </style>
+   
+<header>
+    <h1>创建Task</h1>
+    </header>
+    <form action="" method="post" >{% csrf_token %}
+        {{ form.as_p }}
+        <!-- {{ form.non_field_errors }}
+            <label for="{{ form.name.id_for_label }}"><strong>Task Name</strong> </label><br />
+                <small id="emailHelp" class="form-text text-muted">Task's name</small><br />
+                {{ form.name }} {{ form.name.errors }}
+                <br /><br />
+            <label for="{{ form.mode.id_for_label }}"><strong>Mode</strong> </label><br />
+            
+            {{ form.mode }} {{ form.mode.errors }}
+            <br />
+            <label for="{{ form.device.id_for_label }}"><strong>Device</strong> </label><br />
+            
+            {{ form.device }} {{ form.device.errors }}
+            <br />
+
+            <label for="{{ form.bio.id_for_label }}"><strong>简介</strong></label><br />
+            <small id="emailHelp" >The Description about the catalog.</small><br />
+            {{ form.description }} {{ form.description.errors }}
+            <br /> -->
+        <a href="#" class="button" onClick="javascript:history.back(-1);">返回</a>
+        <input type="submit" value='Create' class="button">
+    </form>
+    
+
+{% endblock content %}

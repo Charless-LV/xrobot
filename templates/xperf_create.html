@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block css_conf %}
+<link rel="stylesheet" href="{% static 'css/cat_create.css' %}" >
+{% endblock css_conf %}
+
+{% block content %}
+<style>
+    @media screen and (min-width: 500px) {
+           #main {
+               width: 100%;
+               min-width: 500px;
+               background-color:rgb(243, 136, 30);
+           }
+       }
+
+   @media screen and (max-width: 900px) {
+           #main {
+           width: 80%;
+           margin-left: 10%;
+           background-color: rgb(204, 246, 15);
+       }
+   }
+   @media screen and (min-width: 1200px) {
+       #main {
+           width: 60%;
+           margin-left: 20%;
+           background-color: bisque;
+           box-shadow: black;
+           box-sizing: border-box;
+       }
+   }
+   #id_buff {
+        ime-mode: disabled;
+    }
+   </style>
+
+
+    <header>
+        <h1>iPerf 参数配置</h1>
+    </header>
+    <form action="" method="post" >{% csrf_token %}
+        {{ form.as_p }}
+
+        <a href="#" class="button" onClick="javascript:history.back(-1);">返回</a>
+        <input type="submit" value='Create' class="button">
+    </form>
+    
+
+{% endblock content %}

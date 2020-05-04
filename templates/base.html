@@ -1,0 +1,39 @@
+{% load static i18n %}
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <title>{% block title %} {{ title }} {% endblock title %}</title>
+    <link href="{% static 'base/base.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'general/header.css' %}" >
+    {% block css_conf %}
+    
+    
+    {% endblock css_conf %}
+    {% block js_conf %}  {% endblock js_conf %}
+    
+    
+</head>
+<body>
+<div id='main'>
+    {% block content %}{% endblock content %}
+    
+</div>
+{% block javascript %} 
+ 
+{% endblock javascript %}
+<script>
+    // 当页面内容小于桌面窗口时，把footer 固定在底部
+    if(document.body.clientHeight<= window.screen.height)
+    {
+        document.getElementById("footer").style.position="fixed";  
+    }
+</script>
+</body>
+
+</html>

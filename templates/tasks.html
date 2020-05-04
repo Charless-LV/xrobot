@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block css_conf %}
+<link rel="stylesheet" href="{% static 'css/task.css' %}" >
+{% endblock css_conf %}
+
+{% block content %}
+
+TASKS<br />
+<hr />
+<a href="{% url 'task_create' %}"> 创建 Task </a>
+{% for task in tasks %}
+
+    <a href="{% url 'task' task.pk %}">{{ task }}</a>
+{% endfor %}
+
+
+
+{% endblock content %}
