@@ -89,7 +89,7 @@ class Xperf(XperfAbstractModel):
 
 
     def run(self):
-        res =  os.popen(self.bootstrap() +'|grep -E \'SUM|sec\'|tail -1|awk -F \']\' \'{ print $2}\'|awk \'{ print %5} \'').read().strip()
+        res =  os.popen(self.bootstrap() +'|grep -E \'SUM|sec\'|tail -1|awk -F \']\' \'{ print $2}\'|awk \'{ print $5} \'').read().strip()
         return res
 
     def auto_run(self):
@@ -119,7 +119,7 @@ class Perf(models.Model):
         verbose_name_plural = _("Perfs")
 
     def __str__(self):
-        return self.name
+        return '{}: {}'.format(self.xperf, self.result)
 
     def get_absolute_url(self):
         return reverse("Perf_detail", kwargs={"pk": self.pk})

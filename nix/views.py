@@ -113,10 +113,13 @@ def xperf_run(request, xpk):
     
     xr = xpf.run()
     print(xr, '////////')
+    pf = Perf.objects.create(xperf=xpf, result=xr)
+    
     ctx = {
         'xperf':xpf,
         'create_time':xpf.create_time,
         'boots':boots,
+	'status': xr if xr else 'RUNING..',
     }
 
     return render(request, template_name, ctx)
@@ -126,5 +129,7 @@ def xperf_run(request, xpk):
 def xperf_stop(request, xpk):
     template_name = 'xperf_stop.html'
     xperf = get_object_or_404(Xperf, pk=xpk)
-
+    
     xperf.stop()
+    
+
