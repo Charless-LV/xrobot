@@ -92,14 +92,15 @@ def xperf_create(request, tpk):
 
     return render(request, template_name, ctx)
 
-def xperf(request, ppk):
+def xperf(request, xpk):
     #res = {}
-    xp = get_object_or_404(Xperf, pk=ppk)
-    res = xp.run()
-    record = Perf(xp, result=res)
+    template_name = 'xperf.html'
+    xp = get_object_or_404(Xperf, pk=xpk)
+    #res = xp.run()
+    #record = Perf(xp, result=res)
     
     ctx = {
-        'xp':xp,
+        'xperf':xp,
     }
 
     return render(request, template_name, ctx)
@@ -107,17 +108,17 @@ def xperf(request, ppk):
 
 def xperf_run(request, xpk):
     template_name= 'xperf_run.html'
-    xpf = get_object_or_404(Xperf, pk=xpk)
+    xperf = get_object_or_404(Xperf, pk=xpk)
     
-    boots =xpf.bootstrap()
+    boots =xperf.bootstrap()
     
-    xr = xpf.run()
+    xr = xperf.run()
     print(xr, '////////')
-    pf = Perf.objects.create(xperf=xpf, result=xr)
+    pf = Perf.objects.create(xperf=xperf, result=xr)
     
     ctx = {
-        'xperf':xpf,
-        'create_time':xpf.create_time,
+        'xperf':xperf,
+        'create_time':xperf.create_time,
         'boots':boots,
 	'status': xr if xr else 'RUNING..',
     }
@@ -129,7 +130,18 @@ def xperf_run(request, xpk):
 def xperf_stop(request, xpk):
     template_name = 'xperf_stop.html'
     xperf = get_object_or_404(Xperf, pk=xpk)
+    boots =xperf.bootstrap()      
+    stp = xperf.stop()
     
-    xperf.stop()
-    
+    ctx = {
+        'xperf': xperf,
+        'boots': boots,
+        'create_time':xperf.create_time,
+        'status':stp if stp else 'stopped',
+
+    }
+
+    return render(request, template_name, ctx)
+
+
 

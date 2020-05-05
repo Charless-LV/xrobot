@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block css_conf %}
+<link rel="stylesheet" href="{% static 'css/task.css' %}" >
+{% endblock css_conf %}
+
+{% block content %}
+<style>
+    @media screen and (min-width: 500px) {
+           #main {
+               width: 100%;
+               min-width: 500px;
+               background-color:rgb(243, 136, 30);
+           }
+       }
+
+   @media screen and (max-width: 900px) {
+           #main {
+           width: 80%;
+           margin-left: 10%;
+           background-color: rgb(204, 246, 15);
+       }
+   }
+   @media screen and (min-width: 1200px) {
+       #main {
+           width: 60%;
+           margin-left: 20%;
+           background-color: bisque;
+           box-shadow: black;
+           box-sizing: border-box;
+       }
+   }
+
+   #title {
+       text-align: center;
+       font-size: xx-large;
+       
+   }
+   h1 {
+        margin: 0 auto;
+   }
+
+
+   #relations {
+       width: 100%;
+       margin: 1rem 5%;
+       display: inline-flex; 
+   }
+
+   #xperf {
+       width: 30%;
+       display: inline-flex;
+       margin-top: 1rem;
+   }
+
+   #xperf a {
+        padding: 0 0.5rem;
+   }
+
+
+   #friends h1 {
+      
+       padding-left: -3rem;
+       
+   }
+
+   #followers {
+       width: 30%;
+       padding: 0 0.5rem;
+   }
+
+   #following {
+       width: 30%;
+       padding: 0 0.5rem;
+   }
+
+</style>
+
+<h1 style="text-align: center;"> XPERF </h1>
+
+<div style="display:inline-block">
+<h2>{{ xperf }}</h2>
+
+<a href="{% url 'xperf_run'  xperf.pk %}"> 执行 </a>
+
+</div>
+{% endblock content %}

@@ -96,7 +96,9 @@ class Xperf(XperfAbstractModel):
         return
 
     def stop(self):
-        return
+        pid = os.popen('ps -ef|grep '+self.bootstrap()+'|awk \'{ print $2}\'').read().strip('\n').strip()
+        os.system('kill -9 '+pid)
+        return 
 
 
 

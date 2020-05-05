@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block css_conf %}
+<link rel="stylesheet" href="{% static 'css/task.css' %}" >
+{% endblock css_conf %}
+
+{% block content %}
+<style>
+  #xperf {
+      text-align: center;
+  }
+
+</style>
+
+
+<div id=xperf>
+    <h1 > Xperf Runing </h1>
+    <h2> {{ boots }} </h2>
+    <h3>Create Time : {{ create_time }}</h3>
+    <br />
+     <h1> {{ status }}</h1>
+    <br />
+    <a href="{% url 'xperf_run' xperf.pk %}">Start</a>
+</div>
+
+{% endblock content %}
